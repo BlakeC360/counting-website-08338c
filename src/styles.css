@@ -1,0 +1,970 @@
+@import 'tailwindcss' source('../');
+
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+body {
+  @apply m-0;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+:root {
+  --font-body:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-heading: 'Bricolage Grotesque', var(--font-body);
+  --font-numeric: 'JetBrains Mono', ui-monospace, monospace;
+  --content-width: 72rem;
+  --reading-width: 42rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.141 0.005 285.823);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.141 0.005 285.823);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.141 0.005 285.823);
+  --primary: oklch(0.21 0.006 285.885);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.21 0.006 285.885);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.871 0.006 286.286);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.141 0.005 285.823);
+  --sidebar-primary: oklch(0.21 0.006 285.885);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.967 0.001 286.375);
+  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
+  --sidebar-border: oklch(0.92 0.004 286.32);
+  --sidebar-ring: oklch(0.871 0.006 286.286);
+}
+
+.dark {
+  --background: oklch(0.16 0.028 255);
+  --foreground: oklch(0.96 0.012 240);
+  --card: oklch(0.2 0.03 255);
+  --card-foreground: oklch(0.96 0.012 240);
+  --popover: oklch(0.2 0.03 255);
+  --popover-foreground: oklch(0.96 0.012 240);
+  --primary: oklch(0.78 0.17 62);
+  --primary-foreground: oklch(0.18 0.02 60);
+  --secondary: oklch(0.25 0.032 255);
+  --secondary-foreground: oklch(0.96 0.012 240);
+  --muted: oklch(0.25 0.032 255);
+  --muted-foreground: oklch(0.74 0.03 240);
+  --accent: oklch(0.28 0.034 255);
+  --accent-foreground: oklch(0.96 0.012 240);
+  --destructive: oklch(0.64 0.22 25);
+  --destructive-foreground: oklch(0.97 0.01 25);
+  --border: oklch(0.3 0.032 255);
+  --input: oklch(0.32 0.032 255);
+  --ring: oklch(0.78 0.17 62);
+  --chart-1: oklch(0.78 0.17 62);
+  --chart-2: oklch(0.72 0.14 160);
+  --chart-3: oklch(0.7 0.15 250);
+  --chart-4: oklch(0.7 0.2 330);
+  --chart-5: oklch(0.85 0.15 95);
+  --sidebar: oklch(0.2 0.03 255);
+  --sidebar-foreground: oklch(0.96 0.012 240);
+  --sidebar-primary: oklch(0.78 0.17 62);
+  --sidebar-primary-foreground: oklch(0.18 0.02 60);
+  --sidebar-accent: oklch(0.28 0.034 255);
+  --sidebar-accent-foreground: oklch(0.96 0.012 240);
+  --sidebar-border: oklch(0.3 0.032 255);
+  --sidebar-ring: oklch(0.78 0.17 62);
+}
+
+@theme inline {
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+  --font-mono: var(--font-numeric);
+  --container-content: var(--content-width);
+  --container-reading: var(--reading-width);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ---------- Infinite Count ---------- */
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Winter backdrop: night sky, aurora, snowy hills and falling snow behind every page. */
+.winter-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 70% 45% at 20% 0%,
+      oklch(0.62 0.13 175 / 0.22),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 85% 5%,
+      oklch(0.55 0.15 280 / 0.2),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 90% 50% at 50% 110%,
+      oklch(0.78 0.17 62 / 0.1),
+      transparent 70%
+    ),
+    linear-gradient(
+      180deg,
+      oklch(0.14 0.04 262) 0%,
+      oklch(0.19 0.045 250) 55%,
+      oklch(0.24 0.04 240) 100%
+    );
+}
+.winter-hills {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  width: 100%;
+  height: 32vh;
+  min-height: 160px;
+}
+.winter-snow {
+  position: absolute;
+  inset: -100% 0 0 0;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #fff 60%, transparent 61%),
+    radial-gradient(1.5px 1.5px at 120px 80px, #fff 60%, transparent 61%),
+    radial-gradient(2.5px 2.5px at 200px 160px, #fff 60%, transparent 61%),
+    radial-gradient(1.5px 1.5px at 260px 40px, #fff 60%, transparent 61%),
+    radial-gradient(2px 2px at 70px 220px, #fff 60%, transparent 61%),
+    radial-gradient(1px 1px at 170px 260px, #fff 60%, transparent 61%);
+  background-size: 300px 300px;
+  opacity: 0.55;
+  animation: winter-snowfall 22s linear infinite;
+}
+.winter-snow-slow {
+  background-size: 460px 460px;
+  opacity: 0.3;
+  filter: blur(1px);
+  animation-duration: 38s;
+}
+@keyframes winter-snowfall {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(40px, 50%, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .winter-snow {
+    animation: none;
+  }
+}
+
+/* Display names can't be selected or copied. */
+.no-copy {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Name fonts (season rewards). */
+.name-font-alegreya {
+  font-family: 'Alegreya', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes count-pop {
+  0% {
+    transform: translateY(12%) scale(0.96);
+    opacity: 0.2;
+  }
+  60% {
+    transform: translateY(-2%) scale(1.02);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-count-pop {
+  animation: count-pop 320ms cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+
+@keyframes count-break {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  15% {
+    transform: translateX(-14px) rotate(-1.5deg);
+  }
+  30% {
+    transform: translateX(12px) rotate(1deg);
+  }
+  45% {
+    transform: translateX(-8px);
+  }
+  60% {
+    transform: translateX(6px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
+}
+.animate-count-break {
+  animation: count-break 520ms ease-out;
+  color: var(--destructive);
+}
+
+@keyframes feed-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-feed-in {
+  animation: feed-in 240ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-count-pop,
+  .animate-count-break,
+  .animate-feed-in {
+    animation: none;
+  }
+}
+
+/* ---------- Shop nametags ----------
+   Each tag has its own fixed palette on purpose: they are collectible looks,
+   not part of the site theme. Every tag is animated; motion stops for
+   prefers-reduced-motion. */
+.nametag {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  max-width: 100%;
+  min-width: 0;
+  vertical-align: middle;
+  border-radius: 9999px;
+  padding: 0 0.55em;
+  font-weight: 700;
+  line-height: 1.6;
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.25),
+    0 1px 6px rgb(0 0 0 / 0.25);
+}
+.nametag > * {
+  position: relative;
+  z-index: 1;
+}
+/* Light sweep shared by every tag. */
+.nametag::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgb(255 255 255 / 0.55) 50%,
+    transparent 65%
+  );
+  transform: translateX(-120%);
+  animation: nametag-sweep var(--sweep, 3.2s) ease-in-out infinite;
+}
+.nametag-emoji {
+  display: inline-block;
+}
+
+.nametag-bronze {
+  background: linear-gradient(135deg, #e0a36b, #a0612c 55%, #d99863);
+  color: #2b1606;
+  --sweep: 4.2s;
+}
+.nametag-silver {
+  background: linear-gradient(135deg, #f4f6f8, #a9b1bb 50%, #e3e7eb);
+  color: #1f242a;
+  --sweep: 3.4s;
+}
+.nametag-gold {
+  background: linear-gradient(135deg, #fff1a8, #e0ad26 50%, #fbe17c);
+  color: #3a2800;
+  --sweep: 2.6s;
+  animation: nametag-glow-gold 2.6s ease-in-out infinite;
+}
+.nametag-ruby {
+  background: linear-gradient(135deg, #ff5d7a, #a3002c 60%, #e2244c);
+  color: #fff2f4;
+  --glow: 255 60 100;
+}
+.nametag-emerald {
+  background: linear-gradient(135deg, #5ff0a8, #0b7a4b 60%, #2bc47f);
+  color: #f0fff7;
+  --glow: 60 230 150;
+}
+.nametag-sapphire {
+  background: linear-gradient(135deg, #6fa8ff, #1438a8 60%, #3f6ee8);
+  color: #f2f6ff;
+  --glow: 90 150 255;
+}
+.nametag-ruby,
+.nametag-emerald,
+.nametag-sapphire {
+  animation: nametag-gem 2.4s ease-in-out infinite;
+}
+.nametag-obsidian {
+  background: linear-gradient(135deg, #1a1325, #05030a 60%, #2a1c3d);
+  color: #d9c8ff;
+  --sweep: 4.5s;
+  animation: nametag-obsidian 3s ease-in-out infinite;
+}
+.nametag-obsidian::after {
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgb(180 140 255 / 0.45) 50%,
+    transparent 65%
+  );
+}
+.nametag-rainbow {
+  background: linear-gradient(
+    90deg,
+    #ff6b6b,
+    #ffd166,
+    #6bf178,
+    #4dc9ff,
+    #b07cff,
+    #ff6b6b
+  );
+  background-size: 300% 100%;
+  color: #170d1f;
+  animation: nametag-shift 4s linear infinite;
+}
+.nametag-diamond {
+  background: linear-gradient(
+    120deg,
+    #e8fbff,
+    #9fe7ff 30%,
+    #ffffff 45%,
+    #c3d9ff 60%,
+    #f1e6ff
+  );
+  background-size: 250% 100%;
+  color: #0c2a3a;
+  --sweep: 1.8s;
+  box-shadow:
+    inset 0 0 0 1px #fff,
+    0 0 12px rgb(159 231 255 / 0.6);
+  animation: nametag-shift 3s ease-in-out infinite alternate;
+}
+.nametag-diamond .nametag-emoji {
+  animation: nametag-twinkle 1.6s ease-in-out infinite;
+}
+
+.nametag-spring {
+  background: linear-gradient(135deg, #ffd1e3, #ff9ec4 50%, #b9f2a8);
+  color: #4a1030;
+}
+.nametag-spring .nametag-emoji {
+  animation: nametag-sway 2.4s ease-in-out infinite;
+}
+.nametag-summer {
+  background: linear-gradient(135deg, #ffe066, #ff9f1c 55%, #ff6f3c);
+  color: #3d1600;
+}
+.nametag-summer .nametag-emoji {
+  animation: nametag-spin 6s linear infinite;
+}
+.nametag-autumn {
+  background: linear-gradient(135deg, #f4a259, #bc4b1f 55%, #8a3b12);
+  color: #fff3e4;
+}
+.nametag-autumn .nametag-emoji {
+  animation: nametag-leaf 3s ease-in-out infinite;
+}
+.nametag-winter {
+  background: linear-gradient(135deg, #ffffff, #bfe6ff 50%, #8cc8f2);
+  color: #0b2c47;
+}
+.nametag-winter .nametag-emoji {
+  animation: nametag-spin 4s linear infinite;
+}
+.nametag-spooky {
+  background: linear-gradient(135deg, #ff8c1a, #c24e00 55%, #1b0b2e);
+  color: #fff1dd;
+  --sweep: 5s;
+}
+.nametag-spooky .nametag-emoji {
+  animation: nametag-flicker 2.2s steps(1) infinite;
+}
+.nametag-festive {
+  background: repeating-linear-gradient(
+    -45deg,
+    #c8102e 0 8px,
+    #e23a4f 8px 16px
+  );
+  background-size: 22.6px 22.6px;
+  color: #fff;
+  box-shadow:
+    inset 0 0 0 2px #1d7a3a,
+    0 1px 6px rgb(0 0 0 / 0.25);
+  animation: nametag-stripes 1.2s linear infinite;
+}
+.nametag-festive .nametag-emoji {
+  animation: nametag-bob 1.4s ease-in-out infinite;
+}
+
+/* Season reward: snowman with falling snow. */
+.nametag-snowman {
+  background: linear-gradient(180deg, #1b3a66, #3b6aa8 70%, #dbeeff);
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgb(0 20 60 / 0.6);
+  box-shadow:
+    inset 0 0 0 1px #cfe8ff,
+    0 0 10px rgb(170 215 255 / 0.5);
+}
+.nametag-snowman::before {
+  content: '';
+  position: absolute;
+  inset: -40px 0 0 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, #fff 0 1.2px, transparent 1.6px),
+    radial-gradient(circle, rgb(255 255 255 / 0.75) 0 0.9px, transparent 1.3px);
+  background-size:
+    14px 14px,
+    9px 9px;
+  background-position:
+    0 0,
+    5px 4px;
+  animation: nametag-snow 2.8s linear infinite;
+}
+.nametag-snowman::after {
+  background: none;
+}
+.nametag-snowman .nametag-emoji {
+  transform-origin: 50% 90%;
+  animation: nametag-wobble 1.8s ease-in-out infinite;
+}
+
+@keyframes nametag-sweep {
+  0%,
+  55% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+@keyframes nametag-shift {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+@keyframes nametag-glow-gold {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 0 0 1px rgb(255 255 255 / 0.4),
+      0 0 4px rgb(255 205 60 / 0.3);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 0 1px rgb(255 255 255 / 0.6),
+      0 0 14px rgb(255 205 60 / 0.75);
+  }
+}
+@keyframes nametag-gem {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 0 0 1px rgb(255 255 255 / 0.25),
+      0 0 3px rgb(var(--glow) / 0.3);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 0 1px rgb(255 255 255 / 0.45),
+      0 0 14px rgb(var(--glow) / 0.8);
+  }
+}
+@keyframes nametag-obsidian {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 0 0 1px #5d3f9e,
+      0 0 4px rgb(143 107 220 / 0.3);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 0 1px #b493ff,
+      0 0 14px rgb(143 107 220 / 0.8);
+  }
+}
+@keyframes nametag-twinkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.25) rotate(12deg);
+    filter: brightness(1.4);
+  }
+}
+@keyframes nametag-sway {
+  0%,
+  100% {
+    transform: rotate(-14deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+}
+@keyframes nametag-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes nametag-leaf {
+  0%,
+  100% {
+    transform: translateY(-1px) rotate(-20deg);
+  }
+  50% {
+    transform: translateY(2px) rotate(25deg);
+  }
+}
+@keyframes nametag-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.55;
+  }
+  45% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.75;
+  }
+}
+@keyframes nametag-stripes {
+  to {
+    background-position: 22.6px 0;
+  }
+}
+@keyframes nametag-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+@keyframes nametag-snow {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(28px) translateX(4px);
+  }
+}
+@keyframes nametag-wobble {
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nametag,
+  .nametag::before,
+  .nametag::after,
+  .nametag .nametag-emoji {
+    animation: none !important;
+  }
+  .nametag::after {
+    opacity: 0;
+  }
+}
+
+/* Season pass title shown on a nameplate. */
+.player-title {
+  font-size: 0.75em;
+  font-style: italic;
+  font-weight: 500;
+  color: #bfe3ff;
+}
+
+/* ---------- Cabin Campfire nametag (season reward) ----------
+   A real photo of a campfire, log cabin and dog on the deck, over a starry sky. */
+.nametag-cabin-campfire {
+  background:
+    linear-gradient(90deg, rgb(8 12 28 / 0.35), rgb(8 12 28 / 0.55)),
+    url('/nametags/cabin-campfire-sky.webp') center / cover,
+    #0b1430;
+  color: #fff4dc;
+  text-shadow:
+    0 1px 2px rgb(0 0 0 / 0.9),
+    0 0 6px rgb(0 0 0 / 0.6);
+  padding-left: 0.2em;
+  box-shadow:
+    inset 0 0 0 1px rgb(255 190 110 / 0.55),
+    0 0 10px rgb(255 120 40 / 0.35);
+}
+.nametag-cabin-campfire::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  /* warm firelight spilling across the tag */
+  background: radial-gradient(
+    ellipse at 0% 100%,
+    rgb(255 130 40 / 0.4),
+    transparent 55%
+  );
+  animation: cabin-glow 1.8s ease-in-out infinite;
+}
+.nametag-cabin-campfire::after {
+  background: none;
+}
+.nametag-scene {
+  position: relative;
+  flex: none;
+  display: block;
+  height: 1.35em;
+  aspect-ratio: 13 / 8;
+  overflow: hidden;
+  border-radius: 9999px 0.35em 0.35em 9999px;
+  box-shadow: 0 0 0 1px rgb(255 200 140 / 0.35);
+}
+.nametag-scene img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-user-drag: none;
+}
+/* flicker of the campfire, bottom-left of the photo */
+.nametag-scene .scene-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 30% 75%,
+    rgb(255 150 50 / 0.45),
+    transparent 40%
+  );
+  mix-blend-mode: screen;
+  animation: cabin-flicker 0.9s ease-in-out infinite alternate;
+}
+@keyframes cabin-glow {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes cabin-flicker {
+  0% {
+    opacity: 0.35;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+/* ---------- Number animations (season rewards) ----------
+   Shown on the live-count number until someone sends the next one. */
+.num-anim {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+}
+
+/* Red Flame: the number burns. Flame tongues rise off it and waver through an
+   animated SVG noise filter (see AnimatedNumber), with embers floating up. */
+.num-anim-red-flame .flame-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.num-anim-red-flame .flame-fire {
+  position: absolute;
+  inset: -0.45em -0.08em -0.05em;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+/* a blurred red copy of the number that burns upward */
+.num-anim-red-flame .flame-glow {
+  position: absolute;
+  inset: 0.45em 0.08em 0.05em;
+  color: #c80a00;
+  text-shadow:
+    0 -0.06em 0.08em #ff3a12,
+    0 -0.16em 0.16em #e01005,
+    0 -0.3em 0.26em rgb(170 0 0 / 0.85);
+  animation: flame-breathe 1.6s ease-in-out infinite alternate;
+}
+.num-anim-red-flame .flame-tongues {
+  position: absolute;
+  inset: 0;
+  -webkit-mask-image: linear-gradient(0deg, #000 35%, transparent 100%);
+  mask-image: linear-gradient(0deg, #000 35%, transparent 100%);
+}
+.num-anim-red-flame .tongue {
+  position: absolute;
+  left: var(--x);
+  bottom: 0.5em;
+  width: var(--s);
+  height: calc(var(--s) * 2.3);
+  margin-left: calc(var(--s) / -2);
+  border-radius: 50% 50% 50% 50% / 80% 80% 25% 25%;
+  background: radial-gradient(
+    ellipse 50% 60% at 50% 78%,
+    #fff1b8 0%,
+    #ffb030 18%,
+    #ff4a12 40%,
+    #d90c00 62%,
+    rgb(120 0 0 / 0) 78%
+  );
+  opacity: 0;
+  animation: flame-rise var(--d) cubic-bezier(0.3, 0.1, 0.6, 1) var(--delay)
+    infinite;
+}
+.num-anim-red-flame .flame-front {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  background: linear-gradient(
+    0deg,
+    #fff4c8 0%,
+    #ffd060 25%,
+    #ff8a24 52%,
+    #ff3a10 78%,
+    #d81000 100%
+  );
+  background-size: 100% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: flame-heat 2.6s ease-in-out infinite alternate;
+}
+/* glow around the letters, outside the clipped text */
+.num-anim-red-flame {
+  filter: drop-shadow(0 0 0.08em rgb(255 40 0 / 0.75))
+    drop-shadow(0 0 0.3em rgb(200 0 0 / 0.45));
+}
+.num-anim-red-flame .flame-embers {
+  position: absolute;
+  inset: -0.6em 0 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.num-anim-red-flame .ember {
+  position: absolute;
+  left: var(--x);
+  bottom: 0.4em;
+  width: 0.035em;
+  height: 0.035em;
+  min-width: 2px;
+  min-height: 2px;
+  border-radius: 9999px;
+  background: #ffcf7a;
+  box-shadow:
+    0 0 4px 1px rgb(255 120 20 / 0.95),
+    0 0 10px 3px rgb(255 30 0 / 0.6);
+  opacity: 0;
+  animation: flame-ember var(--d) ease-out var(--delay) infinite;
+}
+@keyframes flame-rise {
+  0% {
+    transform: translate(0, 0) scale(1.15, 1);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(0, -0.85em) scale(0.25, 1.3);
+    opacity: 0;
+  }
+}
+@keyframes flame-breathe {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes flame-heat {
+  from {
+    background-position: 0 0%;
+  }
+  to {
+    background-position: 0 100%;
+  }
+}
+@keyframes flame-ember {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(var(--drift), -0.55em);
+  }
+  100% {
+    transform: translate(calc(var(--drift) * -1), -1.2em);
+    opacity: 0;
+  }
+}
+
+/* 8-Bit: a glowing pixel-font number with scanlines and a stepped pulse. */
+.num-anim-8-bit .pixel-text {
+  display: inline-block;
+  font-family: 'Press Start 2P', ui-monospace, monospace;
+  font-weight: 400;
+  font-size: 0.5em;
+  letter-spacing: 0;
+  line-height: 1.4;
+  color: #b6ff6b;
+  text-shadow:
+    0.06em 0.06em 0 #1f6f1f,
+    0 0 0.1em #7dff3a,
+    0 0 0.3em rgb(125 255 58 / 0.8),
+    0 0 0.7em rgb(60 255 120 / 0.55);
+  animation: pixel-pulse 1.2s steps(2, jump-none) infinite;
+  image-rendering: pixelated;
+}
+.num-anim-8-bit::after {
+  content: '';
+  position: absolute;
+  inset: -0.05em;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    180deg,
+    rgb(0 0 0 / 0.28) 0 2px,
+    transparent 2px 5px
+  );
+  mix-blend-mode: multiply;
+}
+@keyframes pixel-pulse {
+  0% {
+    filter: brightness(1);
+  }
+  100% {
+    filter: brightness(1.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nametag-scene *,
+  .num-anim *,
+  .num-anim::after {
+    animation: none !important;
+  }
+  .num-anim-red-flame .tongue {
+    opacity: 0.7;
+    transform: translateY(-0.15em);
+  }
+}
